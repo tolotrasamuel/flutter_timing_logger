@@ -26,7 +26,6 @@ import 'package:flutter/foundation.dart';
 ///     D/TAG     ( 3459): methodA: end, 16 ms
 /// </pre>
 class TimingLogger {
-
   /// The Log tag to use for checking Log.isLoggable and for
   /// logging the timings.
   String mTag;
@@ -92,9 +91,7 @@ class TimingLogger {
   /// @param splitLabel a label to associate with this split.
   void addSplit(String splitLabel) {
     if (mDisabled) return;
-    int now = DateTime
-        .now()
-        .millisecondsSinceEpoch;
+    int now = DateTime.now().millisecondsSinceEpoch;
     mSplits.add(now);
     mSplitLabels.add(splitLabel);
   }
