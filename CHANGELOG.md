@@ -1,3 +1,7 @@
+## [1.0.2] - 13th October 2020
+
+- Added example
+
 ## [1.0.1] - 10th October 2020
 
 - Fix formatting and added documentation
