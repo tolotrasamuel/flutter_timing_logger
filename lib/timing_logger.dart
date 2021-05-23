@@ -28,19 +28,19 @@ import 'package:flutter/foundation.dart';
 class TimingLogger {
   /// The Log tag to use for checking Log.isLoggable and for
   /// logging the timings.
-  String mTag;
+  String? mTag;
 
   /// A label to be included in every log. */
-  String mLabel;
+  String? mLabel;
 
   /// Used to track whether Log.isLoggable was enabled at reset time. */
-  bool mDisabled;
+  late bool mDisabled;
 
   /// Stores the time of each split. */
-  List<int> mSplits;
+  List<int>? mSplits;
 
   /// Stores the labels for each split. */
-  List<String> mSplitLabels;
+  late List<String?> mSplitLabels;
 
   /// Create and initialize a TimingLogger object that will log using
   /// the specific tag. If the Log.isLoggable is not enabled to at
@@ -75,10 +75,10 @@ class TimingLogger {
 //    !Log.isLoggable(mTag, Log.VERBOSE);
     if (mDisabled) return;
     if (mSplits == null) {
-      mSplits = new List<int>();
-      mSplitLabels = new List<String>();
+      mSplits = [];
+      mSplitLabels = [];
     } else {
-      mSplits.clear();
+      mSplits!.clear();
       mSplitLabels.clear();
     }
     addSplit(null);
@@ -89,10 +89,10 @@ class TimingLogger {
   /// the specified tag at construction or reset() time then this
   /// call does nothing.
   /// @param splitLabel a label to associate with this split.
-  void addSplit(String splitLabel) {
+  void addSplit(String? splitLabel) {
     if (mDisabled) return;
     int now = DateTime.now().millisecondsSinceEpoch;
-    mSplits.add(now);
+    mSplits!.add(now);
     mSplitLabels.add(splitLabel);
   }
 
@@ -102,12 +102,12 @@ class TimingLogger {
   void dumpToLog() {
     if (mDisabled) return;
     print("$mTag, $mLabel: begin");
-    final int first = mSplits[0];
+    final int first = mSplits![0];
     int now = first;
-    for (int i = 1; i < mSplits.length; i++) {
-      now = mSplits[i];
-      final String splitLabel = mSplitLabels[i];
-      final int prev = mSplits[i - 1];
+    for (int i = 1; i < mSplits!.length; i++) {
+      now = mSplits![i];
+      final String? splitLabel = mSplitLabels[i];
+      final int prev = mSplits![i - 1];
 
       print("$mTag, $mLabel:       ${(now - prev)}  ms, $splitLabel");
     }

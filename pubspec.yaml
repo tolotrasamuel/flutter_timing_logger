@@ -1,11 +1,11 @@
 name: timing_logger
 description: A utility class to help log timings splits throughout a method call.
-version: 1.0.2
+version: 2.0.0
 documentation: https://github.com/tolotrasamuel/flutter_timing_logger
 homepage: https://github.com/tolotrasamuel/flutter_timing_logger
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:

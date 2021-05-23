@@ -1,3 +1,7 @@
+## [2.0.0] - 13th October 2020
+
+- Null safety support
+
 ## [1.0.2] - 13th October 2020
 
 - Added example
